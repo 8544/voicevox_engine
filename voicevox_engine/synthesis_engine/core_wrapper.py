@@ -52,6 +52,7 @@ class GPUType(Enum):
     NONE = auto()
     CUDA = auto()
     DIRECT_ML = auto()
+    ROCM = auto()
 
 
 @dataclass(frozen=True)
@@ -164,6 +165,13 @@ CORE_INFOS = [
         arch="x64",
         core_type="onnxruntime",
         gpu_type=GPUType.CUDA,
+    ),
+    CoreInfo(
+        name="libcore_gpu_rocm.so",
+        platform="Linux",
+        arch="x64",
+        core_type="onnxruntime",
+        gpu_type=GPUType.ROCM,
     ),
     CoreInfo(
         name="libcore_cpu_x64.so",
